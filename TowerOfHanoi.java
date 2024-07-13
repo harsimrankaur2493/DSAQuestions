@@ -18,3 +18,5 @@ public class TowerOfHanoi {
       
    }
 }
+
+//time complexity = 2^n
