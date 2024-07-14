@@ -20,4 +20,8 @@ public class subSequences {
       sub("hello", 0, "");      
    }
 }
+/*
+time complexity= O(2^n) ->-> derived using recursive tree
+   */
+
 
