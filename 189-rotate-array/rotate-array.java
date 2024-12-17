@@ -14,9 +14,9 @@ class Solution {
     public void rotate(int[] nums, int k) {
         int n=nums.length;
         k=k%n; //normalization
-        if(nums.length==0 || nums.length==1){
-            return ;
-        }
+        // if(nums.length==0 || nums.length==1){
+        //     return ;
+        // }
         //rotating array clockwise 
         //reverse array 
         reverse(nums, 0, nums.length-1);
