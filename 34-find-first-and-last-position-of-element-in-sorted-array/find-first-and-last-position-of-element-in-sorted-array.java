@@ -1,42 +1,46 @@
 class Solution {
-    public int[] searchRange(int[] nums, int target) {
-        int arrReturn[]= new int[2];
-        if(nums.length==0){
-            arrReturn[0] = -1;
-            arrReturn[1] = -1;
-            return arrReturn;
-        }
-        int index1 =0;
-        boolean flag1 = false;
-        int index2 = nums.length-1;
-        while(index1<nums.length){
-            if(nums[index1] == target){
-                flag1 = true;
-                break;
-                
-            }
-            index1++;
-            
-        }
-        boolean flag2 = false;
-        while(index2>=0){
-            if(nums[index2] == target){
-                flag2 = true;
-                break;
-                
-            }
-            index2--;
-        }
-        
-        if(flag1 && flag2){
-            arrReturn[0] = index1;
-            arrReturn[1] = index2;
-        }else{
-            arrReturn[0] = -1;
-            arrReturn[1] = -1;
+    public int[] searchRange(int[] arr, int target) {
+        int start =0;
+        int end = arr.length-1;
+        int mid  =0;
+        int result =-1;
+        int ans[] = {-1,-1};
 
+        //finding first occurance;
+
+        while(start <=end){
+            mid = start + (end - start)/2;
+            if ( target == arr[mid]){
+                result = mid;
+                end = mid -1;//search left
+
+            }else if( target > arr[mid]){
+                start = mid +1;
+            }else {
+               end = mid -1; 
+            }
         }
-        return arrReturn;
-        
+        ans[0] = result;
+        start =0;
+        end = arr.length-1;
+        mid=0;
+        result=-1;
+
+        while(start <=end){
+            mid = start + (end - start)/2;
+            if ( target == arr[mid]){
+                result = mid;
+                start = mid +1; //search right
+
+            }else if( target > arr[mid]){
+                start = mid +1;
+            }else {
+               end = mid -1; 
+            }
+        }
+
+        ans [1] = result;
+
+        return ans;
     }
 }
